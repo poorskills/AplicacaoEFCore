@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace AplicacaoEFCore
 {
@@ -16,7 +17,7 @@ namespace AplicacaoEFCore
             {
                 o.Property(x => x.Nome).IsRequired().HasMaxLength(50);
                 o.Property(x => x.Telefone).IsRequired().HasMaxLength(7);
-                o.HasKey(x => x.Id);
+                o.HasKey(x => new {  x.Nome, x.Id});
             });
         }
 

@@ -1,7 +1,11 @@
-﻿namespace AplicacaoEFCore
+﻿using System.Linq.Expressions;
+
+namespace AplicacaoEFCore
 {
     public class Cliente
     {
+        public Func<Cliente, bool> GetById => (x) => x.Nome == Nome && x.Telefone == Telefone;
+
         public Cliente(string? nome, string? endereco, string? telefone)
         {
             Nome = nome;
